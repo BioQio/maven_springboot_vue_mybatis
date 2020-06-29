@@ -2,13 +2,15 @@ package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping("/test")
 public class StudentController {
     @RequestMapping("/hello.do")
-    public void hello(){
-        System.out.println("Hello World");
+    public String hello(){
+       // System.out.println("Hello World");
+        return "Hello World!";
     }
 
 }

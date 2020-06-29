@@ -128,6 +128,48 @@ export default new Router({
 
 ### 页面跳转待解决
 
-:sob:vue不太懂诶，接下来实现前后端的数据交互
+:sob:vue不懂，接下来实现前后端的数据交互
 
 ### 前后端的数据交互
+
+> vue与后台数据交互通常使用axios
+
+#### 前端获取后端数据
+
+在App.vue中添加如下内容
+
+1.引入axios
+
+```javascript
+import axios from 'axios'//提前安装
+```
+
+2.使用axios
+
+```javascript
+ export default {
+       data(){
+           return{
+             info:'fu'
+           };
+       },
+        mounted () {
+            axios
+                .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+                .then(response => (this.info = response))
+        }
+    }
+```
+
+3.显示请求回的信息
+
+```html
+<div id="app">
+  {{ info }}
+</div>
+```
+
+这是从后端请求数据的基本方式。
+
+#### 后端接收前端数据
+
