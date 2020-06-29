@@ -112,14 +112,22 @@ export default new Router({
 
 路由主要是用来页面跳转和加载的，在简单的vue调用过程中并没有用到，但是前后端的整合过程在网上并没有简单的教程，几乎都涉及到了路由的配置，另外加上使用的环境不同导致的操作也相同，按照网上的教程中的代码在此电脑上跑不通。下一步应该着眼于将最简单的vue和springboot整合在一起。
 
-涉及到的路由配置文件有
+涉及到的路由配置文件有：
 
-main.js
+`main.js`
 
-App.vue
+`App.vue`
 
-router.js
+`router.js`
 
-component.vue
+`component.vue`
 
 ### 不使用router直接实现springboot对vue的调用
+
+创建了vue后build生成dist文件，文件里的内容复制到springboot项目里的resource的static文件下，运行springboot项目即可打开vue项目首页了。
+
+### 页面跳转待解决
+
+:sob:vue不太懂诶，接下来实现前后端的数据交互
+
+### 前后端的数据交互
