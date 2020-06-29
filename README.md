@@ -124,7 +124,7 @@ export default new Router({
 
 ### 不使用router直接实现springboot对vue的调用
 
-创建了vue后build生成dist文件，文件里的内容复制到springboot项目里的resource的static文件下，运行springboot项目即可打开vue项目首页了。
+创建了vue后build生成dist文件，文件里的内容复制到springboot项目里的resource的static文件下，运行vue后再运行springboot项目即可打开vue项目首页了。
 
 ### 页面跳转待解决
 
