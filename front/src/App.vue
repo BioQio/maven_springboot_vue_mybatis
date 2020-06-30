@@ -1,38 +1,48 @@
 <template>
     <div id="app">
-        <h1>Bitcoin Price Index</h1>
-        <div
-                v-for-key="currency in info"
-                class="currency">
-            {{ currency.description }}:
-            <span class="lighten">
-      <span v-html="currency.symbol"></span>{{ currency.rate_float | currencydecimal }}
-    </span>
-        </div>
+        <form @submit.prevent="submit">
+            <div>
+                姓名：<input type="text" v-model="user.name">
+            </div>
+
+            <div>
+                性別：
+                <label>
+                    <input type="radio" value="男" v-model="user.gender"> 男
+                </label>
+                <label>
+                    <input type="radio" value="女" v-model="user.gender"> 女
+                </label>
+            </div>
+
+            <input type="submit" value="提交">
+        </form>
     </div>
 </template>
 
 <script type="text/javascript" charset="utf-8">
-    //import HelloWorld from './components/HelloWorld.vue'
-    import axios from 'axios'
     export default {
-       data(){
-           return {
-               info: null
-           }
-       },
-        mounted () {
-            axios
-                .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-                .then(response => (this.info = response.data.bpi))
+        data:function() {
+        return {
+                student:{
+                    username:"lqy",
+                    gender:"male"
+                }
+        };
         },
-        filters: {
-            currencydecimal (value) {
-                return value.toFixed(2)
+        method:{
+            submit() {
+                var formData=JSON.stringify(this.student)//对象转为jsonString
+                this.$http.post("",formData).then(function (data) {//url:
+                    if (data.json().state=="success"){
+                        console.log("success")
+                    }
+                }).catch(function () {
+                    console.log("服务器异常！");
+                });
             }
         }
     }
-
 </script>
 
 <style>
